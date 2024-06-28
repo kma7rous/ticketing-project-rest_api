@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cydeo</groupId>
-    <artifactId>ticketing-project-rest</artifactId>
+    <artifactId>ticketing-project-rest_api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ticketing-project-rest</name>
-    <description>ticketing-project-rest</description>
+    <name>ticketing-project-rest_api</name>
+    <description>ticketing-project-rest_api</description>
     <properties>
         <java.version>11</java.version>
     </properties>
