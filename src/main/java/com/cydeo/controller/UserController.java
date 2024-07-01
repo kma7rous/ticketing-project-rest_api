@@ -1,7 +1,9 @@
 package com.cydeo.controller;
 
+import com.cydeo.annotation.DefaultExceptionMessage;
 import com.cydeo.dto.UserDTO;
 import com.cydeo.entity.ResponseWrapper;
+import com.cydeo.exception.TicketingProjectException;
 import com.cydeo.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -63,9 +65,10 @@ public class UserController {
     @DeleteMapping("/{userName}")
     @RolesAllowed("Admin")
     @Operation(summary = "Delete User")
-    public ResponseEntity<ResponseWrapper> deleteUser(@PathVariable("userName") String userName){
+    @DefaultExceptionMessage(defaultMessage = "Failed to delete user")
+    public ResponseEntity<ResponseWrapper> deleteUser(@PathVariable("userName") String userName) throws TicketingProjectException {
 
-        userService.deleteByUserName(userName);
+        userService.delete(userName);
         return ResponseEntity.ok(new ResponseWrapper("User is successfully deleted",HttpStatus.OK));
 
     }
